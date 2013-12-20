@@ -16,12 +16,15 @@
 /* Variables
    ----------------------------- */
 @brand-primary: rgb(0, 136, 255);
+@brand-secondary: rgb(204, 85, 34);
 @btn-primary-bg: @brand-primary;
+@btn-info-bg: @brand-secondary;
 
 @body-bg: #f5f5f5;
 @text-color: #302c2c;
 @link-color: @brand-primary;
 @link-hover-color: darken(@link-color, 15%);
+
 
 @font-family-sans-serif: 'Open Sans', 'Arial', sans-serif;
 @font-family-base: @font-family-sans-serif;
@@ -57,7 +60,7 @@ h5,
 h6 {
   color: @grayDark;
   font-family: @font-family-sans-serif;
-  font-weight: 700;
+  font-weight: @headings-font-weight;
 }
 a {
   color: @brand-primary;
@@ -65,7 +68,7 @@ a {
 
 select {
   font-family: @font-family-sans-serif;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* Header
@@ -888,9 +891,15 @@ footer {
   }
 }
 .btn-primary {
-  background: @brand-primary;
+  background: @btn-primary-bg;
   &:hover {
     background: @link-hover-color;
+  }
+}
+.btn-info {
+  background: @btn-info-bg;
+  &:hover {
+    background: darken(@btn-info-bg, 15%);
   }
 }
 .icon-rotate-45:before {
