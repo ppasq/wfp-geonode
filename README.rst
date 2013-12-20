@@ -1,4 +1,4 @@
-{{ project_name|title }}
+Wfp
 ========================
 
 You should write some docs, it's good for the soul.
