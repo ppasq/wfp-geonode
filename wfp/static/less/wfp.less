@@ -31,7 +31,7 @@
 @font-size-base: 0.875em;
 @line-height-base: 1.428571429;
 
-@headings-font-weight: 700;
+@headings-font-weight: 600;
 
 @navbar-height: auto;
 @navbar-inverse-bg: @brand-primary;;
@@ -51,6 +51,7 @@ body {
   background: @body-bg;
   font-family: @font-family-sans-serif;
   line-height: 1.428571429;
+  -webkit-font-smoothing: antialiased;
 }
 h1,
 h2,
@@ -81,14 +82,11 @@ select {
   border-bottom: 3px solid #4af;
   height: 45px;
   .brand {
-    background: url(../img/wfp_logo.png) 20px 0 no-repeat;
-    /*background: url(http://www.wfp.org/sites/default/themes/wfp/images/logo_wfp.gif) 20px 0 no-repeat;*/
     color: #fff;
     font-size: 1.5em;
     height: 45px;
-    letter-spacing: 1px;
     line-height: 0.9em;
-    text-indent: 50px;
+    text-indent: 20px;
     text-transform: none;
   }
   .input-append, .input-prepend {
@@ -105,6 +103,7 @@ select {
 }
 .navbar-inverse .brand, .navbar-inverse .nav > li > a {
   color: white;
+  font-weight: 600;
   padding: 12px 12px 13px;
   text-shadow: none;
   -webkit-transition: all 0.3s ease;
@@ -220,7 +219,7 @@ article h3 [class^="icon-"], [class*=" icon-"] {
 .list article {
   border-bottom: 1px solid @grayLight;
   clear: both;
-  margin-left: 40px;
+  margin-left: 0;
   .content {
     margin-left: 0;
   }
@@ -296,10 +295,10 @@ body.people article .content {
   border: 1px solid @grayLight;
   border-radius: 4px;
   float: left;
-  margin: 0 -24px 20px 36px;
+  margin: 10px 0 10px 5px;
   overflow: hidden;
   padding: 0;
-  width: 200px;
+  .span4{};
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
      -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
@@ -462,6 +461,7 @@ ul.nav-pills.filter {
   color: @gray;
   font-size: 0.8em;
   font-weight: normal;
+  margin-right: 20px;
 }
 .search-count {
   margin: 10px 40px;
@@ -474,6 +474,7 @@ ul.nav-pills.filter {
   .tab-content {
     margin-left: 0;
     padding-bottom: 40px;
+    padding-top: 40px;
   }
   .span4 {
     margin-left: 0;
@@ -520,7 +521,7 @@ ul.nav-pills.filter {
     position: absolute;
     right: 0;
     text-align: center;
-    top: 10px;
+    top: -40px;
     width: 20px;
   }
   a.toggle-nav {
@@ -531,6 +532,7 @@ ul.nav-pills.filter {
     }
   }
 }
+
 #nav-keywords {
   ul.nav {
     list-style: none;
