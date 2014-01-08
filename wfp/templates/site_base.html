@@ -22,29 +22,16 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="/"><strong>WFP</strong>GeoNode</a>
-      <div class="nav-collapse">
-        <ul class="nav">
-          <!-- <li id="nav_home">
-            <a href="{% url "home" %}">{% trans "Home" %}</a>
-          </li> -->
-          <li id="nav_data">
-            <a href="{% url "layer_browse" %}">{% trans "Layers" %}</a>
-          </li>
-          <li id="nav_maps">
-            <a href="{% url "maps_browse" %}">{% trans "Maps" %}</a>
-          </li>
-          <li id="nav_documents">
-            <a href="{% url "documents_browse" %}">{% trans "Documents" %}</a>
-          </li>
-          <li id="nav_people">
-            <a href="{% url "profile_browse" %}">{% trans "People" %}</a>
-          </li>
-        </ul>
-        <ul class="nav pull-right">
+      <div class="span3">
+        <a class="brand" href="/"><strong>WFP</strong>GeoNode</a>
+      </div>
+      <div class="span8 pull-right">
+        <div class="row">
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
               {% if user.is_authenticated %}
               <li class="user-avatar">
-                {% avatar user 45 %}
+                {% avatar user 32 %}
               </li>
               <li class="dropdown user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -69,7 +56,7 @@
               </li>
               {% else %}
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle login" data-toggle="dropdown">Sign in <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li>
                     <form action="{% url "account_login" %}" method="post" class="sign-in">
@@ -94,14 +81,49 @@
               {% endif %}
             </ul>
             <form class="input-append pull-right" action="{% url "search" %}" method="GET">
-              {# csrf_token #}
+            {# csrf_token #}
               <input id="search" type="text" name="q"/>
             </form>
-          </div><!--/.nav-collapse -->
-        </div>
+            {% if csrf_token != "NOTPROVIDED" %}
+            {% get_current_language as LANGUAGE %}
+            <form class="form-inline pull-right" action="/i18n/setlang/" method="post">
+            {% csrf_token %}
+              <select class="input span2 language" dir="rtl" name="language" onchange="javascript:form.submit()">
+                {% for lang in LANGUAGES %}
+                <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
+                  {{ lang.1 }}
+                </option>
+                {% endfor %}
+              </select>
+            </form>
+            {% endif %}
+          </div> <!-- /.nav-collapse -->
+        </div> <!-- /.row -->
+        <div class="row">
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
+              <li id="nav_data">
+                <a href="{% url "layer_browse" %}">{% trans "Layers" %}</a>
+              </li>
+              <li id="nav_maps">
+                <a href="{% url "maps_browse" %}">{% trans "Maps" %}</a>
+              </li>
+              <li id="nav_documents">
+                <a href="{% url "documents_browse" %}">{% trans "Documents" %}</a>
+              </li>
+              <li id="nav_people">
+                <a href="{% url "profile_browse" %}">{% trans "People" %}</a>
+              </li>
+            </ul>
+          </div> <!-- /.nav-collapse -->
+        </div> <!-- /.row -->
       </div>
-    </div>
-    {% block jambotron %}{% endblock %}
+    </div> <!-- /.container -->
+  </div>
+</div>
+
+
+    {% block jumbotron %}{% endblock %}
     {% endblock header %}
 
 
@@ -122,7 +144,6 @@
             {% endfor %}
           </div>
          {% endif %}
-        
           {% block body_outer %}
           <div class="span8">
           {% block body %}{% endblock %}
@@ -131,7 +152,6 @@
           {% block sidebar %}{% endblock %}
           </div>
           {% endblock %}
-          
         </div>
       </div> <!-- /.container -->
     </div>
@@ -141,25 +161,13 @@
     <footer class="footer">
       <div class="container">
         <div class="pull-left">
-          {% trans "Powered by" %} <a href="http://geonode.org">{% trans "GeoNode" %}</a> <em>{% trans "version" %} {{ VERSION }}</em> |
-          <a href="{% url "developer" %}">{% trans "Developers" %}</a> |
-          <a href="{% url "about" %}">{% trans "About" %}</a>
+          {% trans "Powered by" %} <a href="http://geonode.org">{% trans "GeoNode" %}</a> 2.0 |
+          <!-- <a href="{% url "developer" %}">{% trans "Developers" %}</a> | -->
+          <a href="{% url "about" %}">{% trans "About" %}</a> | 
+          <a href="http://cdn.wfp.org/legal/terms/">Terms of Use</a>
         </div>
         <div class="pull-right">
-        {% if csrf_token != "NOTPROVIDED" %}
-          {% get_current_language as LANGUAGE %}
-          <form class="form-inline" action="/i18n/setlang/" method="post">
-          {% csrf_token %}
-            <label>{% trans "Language" %}</label>
-            <select class="input span2" name="language" onchange="javascript:form.submit()">
-              {% for lang in LANGUAGES %}
-              <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
-                {{ lang.1 }}
-              </option>
-              {% endfor %}
-            </select>
-          </form>
-        {% endif %}
+          <a href="http://www.wfp.org">World Food Programme</a> &copy; 2014
         </div> <!-- /.pull-right -->
       </div> <!-- /.container -->
     </footer>

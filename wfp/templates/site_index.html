@@ -1,5 +1,4 @@
 {% extends 'index.html' %}
-{% load i18n avatar_tags announcements_tags %}
 {% load i18n %}
 {% load maps_tags %}
 {% load layers_tags %}
@@ -11,201 +10,161 @@ This is where you can override the hero area block. You can simply modify the co
 {% endcomment %}
 
 {% block extra_head %}
-<style>
-.row {
-  margin-left: 0;
-  *zoom: 1;
-}
-.row:before,
-.row:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.row:after {
-  clear: both;
-}
 
-[class*="span"] {
-  float: left;
-  min-height: 1px;
-  margin-left: 0;
-}
-.container,
-.navbar-static-top .container,
-.navbar-fixed-top .container,
-.navbar-fixed-bottom .container {
-  width: 960px;
-}
-.span12 {
-  width: 960px;
-}
-.span11 {
-  width: 880px;
-}
-.span10 {
-  width: 800px;
-}
-.span9 {
-  width: 720px;
-}
-.span8 {
-  width: 640px;
-}
-.span7 {
-  width: 560px;
-}
-.span6 {
-  width: 480px;
-}
-.span5 {
-  width: 400px;
-}
-.span4 {
-  width: 320px;
-}
-.span3 {
-  width: 240px;
-}
-.span2 {
-  width: 160px;
-}
-.span1 {
-  width: 80px;
-}
-.offset12 {
-  margin-left: 960px;
-}
-.offset11 {
-  margin-left: 880px;
-}
-.offset10 {
-  margin-left: 800px;
-}
-.offset9 {
-  margin-left: 720px;
-}
-.offset8 {
-  margin-left: 640px;
-}
-.offset7 {
-  margin-left: 560px;
-}
-.offset6 {
-  margin-left: 480px;
-}
-.offset5 {
-  margin-left: 400px;
-}
-.offset4 {
-  margin-left: 320px;
-}
-.offset3 {
-  margin-left: 240px;
-}
-.offset2 {
-  margin-left: 160px;
-}
-.home-thumb {
-  margin-top: -104px;
-  z-index:999;
-  -webkit-transition: all 0.3s ease;
-     -moz-transition: all 0.3s ease;
-       -o-transition: all 0.3s ease;
-          transition: all 0.3s ease;
-}
-.home-thumb a:hover {
-  opacity: 0.2;
-  -webkit-transition: all 0.3s ease;
-     -moz-transition: all 0.3s ease;
-       -o-transition: all 0.3s ease;
-          transition: all 0.3s ease;
-}
-.pippo {
-  font-size: 24px;
-  margin-top: 60px;
-  opacity: 1;
-  text-align:center;
-}
-.pippo a {
-  color: white;
-}
-.pippo a:hover {
-  
-}
-</style>
+<style>
+  /* Carousel base class */
+  .carousel {
+    background: #605e5e;
+    margin-bottom: 0px;
+    margin-top: 80px;
+  }
+  .carousel .container {
+    position: relative;
+    z-index: 9;
+  }
+  .carousel-control {
+    background-color: transparent;
+    border: 0;
+    font-size: 8em;
+    height: 60px;
+    margin-top: 0;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    z-index: 10;
+  }
+    .carousel .item {
+      height: 350px;
+    }
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      height: 350px;
+    }
+
+    .carousel-caption {
+      background: rgba(0,0,0,.4);
+      position: static;
+      padding: 0;
+      margin-top: 80px;
+      width: 600px;
+      -webkit-border-radius: 10px;
+         -moz-border-radius: 10px;
+              border-radius: 10px;
+    }
+    .carousel-caption h1 {
+      color: #fff;
+      font-size: 3em;
+      font-weight: 400;
+      line-height: 1em;
+      margin: 0;
+      padding: 20px;
+      text-shadow: 2px 2px 2px rgba(0,0,0,.4);
+    }
+    .carousel-caption .lead {
+      color: #fff;
+      font-weight: 600;
+      line-height: 1.25em;
+      padding: 20px;
+      text-shadow: 2px 2px 2px rgba(0,0,0,.4);
+    }
+
+    </style>
 {% endblock %}
 
-{% block jambotron %}
+{% block jumbotron %}
+<!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="/static/img/layerslider01.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1><strong>WFP</strong>GeoNode</h1>
+              <p class="lead">An open source platform for creating and sharing<br />geospatial data and maps.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="/static/img/layerslider02.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Create and Share Maps</h1>
+              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="/static/img/layerslider03.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Contribute</h1>
+              <p class="lead">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel -->
 
+    <section class="social">
+      <div class="row">
+        <div class="container">
+          <div class="row">
+            <div class="span8">
+              <div class="row">
+                <div class="span2"><p><a href="/layers/">Layers <span class="count">{{ facets.layers }}</span></a></p></div>
+                <div class="span2"><p><a href="/maps/">Maps <span class="count">{{ facets.maps }}</span></a></p></div>
+                <div class="span2"><p><a href="/documents/">Documents <span class="count">{{ facets.documents }}</span></a></p></div>
+                <div class="span2"><p><a href="/people/">Contributors <span class="count">{{ facets.users }}</span></a></p></div>
+              </div>
+            </div>
+            <div class="span4">
+              <p class="pull-right">
+                <a href="/search/form/"><i class="icon-search"></i> Advanced Search</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 {% endblock %}
 
 {% block hero %}
 {% endblock %}
 
 {% block mainbody %}
-<div class="container" style="margin-top: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">
-  <div class="row">
-    <div class="span3" style="background:rgb(0, 136, 255); height:160px; text-align:center">
-      <img style="margin-top:20px" src="/static/img/wfp_logo_big.png">
+<div class="row">
+  <div class="span4">
+    <div class="row">
+      <div class="span1">
+        <i class="icon-unchecked icon-rotate-45 icon-4x pull-right"></i>
+      </div>
+      <div class="span3">
+        <h3>Explore Data</h3>
+        <p>Click to search for geospatial data from our corporate SDI or published by other users, organizations and public sources.</p>
+      </div>
     </div>
-    <div class="span3" style="background:url(/static/img/img4.jpg) no-repeat; height:160px; color:#fff;"></div>
-    <div class="span3" style="background:url(/static/img/img2.jpg) no-repeat; height:160px; color:#fff;"></div>
-    {% if user.is_authenticated %}
-    <a href="/upload/">
-      <div class="span3" style="background:rgb(0, 136, 255); height:160px; text-align:center">
-        <i class="icon-cloud-upload" style="color:#fff; font-size: 60px; line-height:2em; text-align:center"></i>
-        <p style="color:#fff; font-size:1.5em; line-height:0">Upload Layer</p>
-      </div>
-    </a>
-    {% else %}
-    <div class="span3" style="background:url(/static/img/img1.jpg) no-repeat; height:160px; color:#fff;"></div>
-    {% endif %}
   </div>
-  <div class="row">
-    <a href="/help/">
-      <div class="span3" style="background:rgb(204, 85, 34); height:160px; text-align:center">
-        <i class="icon-chevron-sign-right" style="color:#fff; font-size: 60px; line-height:2em; text-align:center"></i>
-        <p style="color:#fff; font-size:1.5em; line-height:0">Get Started</p>
+  <div class="span4">
+    <div class="row">
+      <div class="span1"><i class="icon-map-marker icon-4x pull-right"></i></div>
+      <div class="span3">
+        <h3>Explore Maps</h3>
+        <p>Data is available for browsing, aggregating and styling to generate maps which can be shared publicly or restricted to specific users only.</p>
       </div>
-    </a>
-    <div class="span6" style="background:url(/static/img/img0.jpg); height:160px; text-align:center; color:#fff;">
-      <p style="font-size:5em; line-height:2em">GeoNode</p>
     </div>
-    <a href="/layers/">
-      <div class="span3" style="background:rgb(26, 84, 166); height:160px; text-align:center; color:#fff;">
-        <i class="icon-check-empty icon-rotate-45" style="color:#fff; font-size: 60px; line-height: 2em; text-align:center"></i>
-        <p style="font-size:1.5em; line-height:0">Layers</p>
-      </div>
-    </a>
   </div>
-  <div class="row">
-    <div class="span3" style="background:url(/static/img/img3.jpg) no-repeat; height:160px; color:#fff;"></div>
-    <div class="span3" style="background:url(/static/img/img9.jpg) no-repeat; height:160px; color:#fff;"></div>
-    <a href="/maps/">
-      <div class="span3" style="background:rgb(0, 136, 255); height:160px; text-align:center; color:#fff;">
-        <i class="icon-map-marker" style="color:#fff; font-size: 60px; line-height: 2em; text-align:center"></i>
-        <p style="font-size:1.5em; line-height:0">Maps</p>
+  <div class="span4">
+    <div class="row">
+      <div class="span1"><i class="icon-cloud-upload icon-4x pull-right"></i></i></div>
+      <div class="span3">
+        <h3>Upload Data</h3>
+        <p>GeoNode allows registered users fo easiley upload geospatial data in several formats including shapefile, GeoTiff and KML.</p>
       </div>
-    </a>
-    <div class="span3" style="background:url(/static/img/img6.jpg) no-repeat; height:160px; color:#fff;"></div>
-  </div>
-  <div class="row">
-    <div class="span3" style="height:160px; background:rgb(0, 136, 255)">
-      <p class="pippo"><a href="/about">About</a></p>
-      <p class="home-thumb"><a href="/about"><img src="/static/img/img8.jpg"></a></p>
     </div>
-    <a href="/people/">
-      <div class="span3" style="background:#4af; height:160px; text-align:center; color:#fff;">
-        <i class="icon-group" style="color:#fff; font-size: 60px; line-height: 2em; text-align:center"></i>
-        <p style="font-size:1.5em; line-height:0">People</p>
-      </div>
-    </a>
-    <div class="span3" style="background:url(/static/img/img7.jpg) no-repeat; height:160px; color:#fff;"></div>
-    <a href="/documents"><div class="span3" style="background:rgb(0, 136, 255); height:160px; text-align:center; color:#fff;">
-      <i class="icon-file-text-alt" style="color:#fff; font-size: 60px; line-height: 2em; text-align:center"></i>
-      <p style="font-size:1.5em; line-height:0">Documents</p>
-    </div></a>
   </div>
 </div>
 {% endblock %}

@@ -1,9 +1,11 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 
-from geonode.urls import *
+from geonode.urls import urlpatterns
 
 urlpatterns = patterns('',
 
     # Static pages
-    url(r'^$', 'geonode.views.index', {'template': 'site_index.html'}, name='home'),
- ) + urlpatterns
+    url(r'^$', 'wfp.views.index', {'template': 'site_index.html'}, name='home'),
+ 
+ ) + \
+urlpatterns
