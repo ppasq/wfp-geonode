@@ -8,6 +8,10 @@ Request the full list::
 Request the full documents list::
 
     http://localhost:8000/wfpdocs/api/v1/wfp-document/?format=json
+    
+Request the full category list::
+
+    http://localhost:8000/wfpdocs/api/v1/category/?format=json
 
 Request just one document (id=1)::
 
