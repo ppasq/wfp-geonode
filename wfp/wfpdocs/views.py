@@ -115,7 +115,6 @@ def document_metadata(request, docid, template='documents/document_metadata.html
     poc = document.poc
     metadata_author = document.metadata_author
 
-    import ipdb;ipdb.set_trace()
     if request.method == "POST":
         document_form = DocumentForm(request.POST, instance=document, prefix="resource")
     else:
