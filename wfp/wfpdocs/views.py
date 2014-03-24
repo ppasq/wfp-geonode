@@ -10,6 +10,7 @@ from geonode.documents.views import document_set_permissions
 from django.core.urlresolvers import reverse
 from models import WFPDocument, Category
 from forms import DocumentForm
+from geonode.people.forms import ProfileForm
 from geonode.maps.views import _perms_info
 from geonode.documents.views import DOCUMENT_LEV_NAMES, IMGTYPES
 
